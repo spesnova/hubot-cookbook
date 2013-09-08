@@ -4,13 +4,22 @@ Using cookbook library/application pattern.
 
 Todo:
 
-* Install Nodejs
 * Determine how do manage hubot script
+* Support other platform
 * logrotate?
 
 # Requirements
+## Platform
 
-* hubot (opscode)
+* CentOS
+
+Tested on:
+
+* CentOS 6.4
+
+## Cookbook
+
+* [hubot](https://github.com/schisamo-cookbooks/hubot) (opscode)
 
 # Usage
 Include the recipe on your node or role that fits how you wish to install Kandan on your system per the recipes section above. Modify the attributes as required in your role to change how various configuration is applied per the attributes section above. In general, override attributes in the role should be used when changing attributes.
