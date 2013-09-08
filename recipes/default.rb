@@ -16,3 +16,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+### OS packages required by assorted Hubot scripts ###
+require_packages = Array.new
+
+case node["platform_family"]
+when "debian"
+  require_packages = %w{ libexpat1 libexpat1-dev libicu-dev }
+when "rhel"
+  include_recipe "yum::epel"
+  require_packages = %w{ libicu-devel libicu }
+else
+  Chef::Log.error "This recipe does not support this platform"
+  return
+end
+
+require_packages.each do |pkg|
+  package pkg do
+    action :install
+  end
+end
+
+# install hubot
+include_recipe "hubot"
+
+# TODO determine how to manage hubot script file
+# TODO write some resource for hubot script file
+
+# TODO LOG HANDLING
