@@ -28,16 +28,20 @@ default["hubot"]["group"]           = "hubot"
 default["hubot"]["name"]            = "hubot"
 default["hubot"]["adapter"]         = "kandan"
 default["hubot"]["dependencies"]    = {
-  "hubot-hipchat" => ">= 2.4.5",
   "node-stringprep" => "0.1.5",
   "hubot-kandan" => "git://github.com/narkisr/hubot-kandan.git"
 }
-#default['hubot']['config']          = {
-#  "HUBOT_HIPCHAT_JID" => node['opscode-hubot']['hipchat_jid'],
-#  "HUBOT_HIPCHAT_PASSWORD" => node['opscode-hubot']['hipchat_password'],
-#  "HUBOT_HIPCHAT_ROOMS" => node['opscode-hubot']['hipchat_rooms'].join(","),
-#  "HUBOT_HIPCHAT_DEBUG" => "false"
-#}
+
+default["hubot"]["kandan_host"]     = "localhost"
+default["hubot"]["kandan_port"]     = "80"
+default["hubot"]["kandan_token"]    = "xxxxxxx"
+default["hubot"]["auth_admin"]      = "spesnova"
+default["hubot"]["config"]          = {
+  "HUBOT_KANDAN_HOST"   => default['hubot']['kandan_host'],
+  "HUBOT_KANDAN_PORT"   => default['hubot']['kandan_port'], 
+  "HUBOT_KANDAN_TOKEN"  => default['hubot']['kandan_token'],
+  "HUBOT_AUTH_ADMIN"    => default['hubot']['auth_admin']  
+}
 default['hubot']['hubot_scripts']   = %w{
   ackbar.coffee
   applause.coffee
