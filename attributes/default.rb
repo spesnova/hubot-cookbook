@@ -26,23 +26,23 @@ default["hubot"]["install_dir"]     = "/opt/hubot"
 default["hubot"]["user"]            = "hubot"
 default["hubot"]["group"]           = "hubot"
 default["hubot"]["name"]            = "hubot"
+default["hubot"]["auth_admin"]      = "spesnova"
 default["hubot"]["adapter"]         = "kandan"
 default["hubot"]["dependencies"]    = {
   "node-stringprep" => "0.1.5",
-  "hubot-kandan" => "git://github.com/narkisr/hubot-kandan.git"
+  "hubot-kandan"    => "git://github.com/narkisr/hubot-kandan.git"
 }
 
+# Config for kandan adapter
 default["hubot"]["kandan_host"]     = "localhost"
 default["hubot"]["kandan_port"]     = "80"
 default["hubot"]["kandan_token"]    = "xxxxxxx"
-default["hubot"]["auth_admin"]      = "spesnova"
+
 default["hubot"]["config"]          = {
-  "HUBOT_KANDAN_HOST"   => default['hubot']['kandan_host'],
-  "HUBOT_KANDAN_PORT"   => default['hubot']['kandan_port'], 
-  "HUBOT_KANDAN_TOKEN"  => default['hubot']['kandan_token'],
-  "HUBOT_AUTH_ADMIN"    => default['hubot']['auth_admin']  
+  "HUBOT_AUTH_ADMIN" => node["hubot"]["auth_admin"]
 }
-default['hubot']['hubot_scripts']   = %w{
+
+default["hubot"]["hubot_scripts"]   = %w{
   ackbar.coffee
   applause.coffee
   ascii.coffee
