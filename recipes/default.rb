@@ -17,6 +17,10 @@
 # limitations under the License.
 #
 
+%{ libexpat1 libexpat1-dev libicu-dev }.each do |p|
+  package p
+end
+
 # install hubot
 include_recipe "hubot"
 
