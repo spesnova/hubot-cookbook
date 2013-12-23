@@ -18,30 +18,15 @@
 # limitations under the License.
 #
 
-override["nodejs"]["install_method"] = "package"
-
-default["hubot"]["version"]         = "2.4.6"
-default["hubot"]["scripts_version"] = "2.4.1"
+default["hubot"]["version"]         = "2.6.3"
+default["hubot"]["scripts_version"] = "2.5.4"
 default["hubot"]["install_dir"]     = "/opt/hubot"
 default["hubot"]["user"]            = "hubot"
 default["hubot"]["group"]           = "hubot"
 default["hubot"]["name"]            = "hubot"
-default["hubot"]["auth_admin"]      = "spesnova"
-default["hubot"]["adapter"]         = "kandan"
-default["hubot"]["dependencies"]    = {
-  "node-stringprep" => "0.1.5",
-  "hubot-kandan"    => "git://github.com/narkisr/hubot-kandan.git"
-}
-
-# Config for kandan adapter
-default["hubot"]["kandan_host"]     = "localhost"
-default["hubot"]["kandan_port"]     = "80"
-default["hubot"]["kandan_token"]    = "xxxxxxx"
-
-default["hubot"]["config"]          = {
-  "HUBOT_AUTH_ADMIN" => node["hubot"]["auth_admin"]
-}
-
+default["hubot"]["adapter"]         = "hipchat"
+default["hubot"]["dependencies"]    = {}
+default["hubot"]["config"]          = {}
 default["hubot"]["hubot_scripts"]   = %w{
   ackbar.coffee
   applause.coffee
