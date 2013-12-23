@@ -23,11 +23,8 @@ node.override["hubot"]["adapter"] = "hipchat"
 # hubot config
 #
 hubot_config = Chef::EncryptedDataBagItem.load("users", "hubot")["hubot_config"]
-p Chef::EncryptedDataBagItem.load("users", "hubot")
-p Chef::Config[:encrypted_data_bag_secret]
-p hubot_config
 
-node.override["hubot"]["config"].merge!({
+node.override["hubot"]["config"] = node["hubot"]["config"].merge({
   "HUBOT_AUTH_ADMIN"       => hubot_config["hubot_auth_admin"],
   "HUBOT_HIPCHAT_TOKEN"    => hubot_config["hubot_hipchat_token"],
   "HUBOT_HIPCHAT_JID"      => hubot_config["hubot_hipchat_jid"],
@@ -38,6 +35,6 @@ node.override["hubot"]["config"].merge!({
 #
 # hubot dependencies
 #
-node.override["hubot"]["dependencies"].merge!({
+node.override["hubot"]["dependencies"] = node["hubot"]["dependencies"].merge({
   "hubot-hipchat" => "2.6.4"
 })
