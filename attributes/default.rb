@@ -28,42 +28,4 @@ default["hubot"]["adapter"]         = nil
 default["hubot"]["dependencies"]    = {}
 default["hubot"]["config"]          = {}
 default["hubot"]["hubot_scripts"]   = %w{
-  ackbar.coffee
-  applause.coffee
-  ascii.coffee
-  b6n.coffee
-  base64.coffee
-  beerme.coffee
-  botsnack.coffee
-  cheer.coffee
-  cowsay.coffee
-  dnsimple.coffee
-  gemwhois.coffee
-  github-status.coffee
-  good-night.coffee
-  goooood.coffee
-  horse.coffee
-  haters.coffee
-  kittens.coffee
-  likeaboss.coffee
-  look-of-disapproval.coffee
-  nice.coffee
-  pinkman.coffee
-  polite.coffee
-  quote.coffee
-  rageface.coffee
-  rimshot.coffee
-  rubygems.coffee
-  shipit.coffee
-  shorten.coffee
-  spin.coffee
-  sudo.coffee
-  sweetdude.coffee
-  tweet.coffee
-  walmart.coffee
-  wat.coffee
-  wunderground.coffee
-  xkcd.coffee
-  yoda-quotes.coffee
-  yuno.coffee
 }
