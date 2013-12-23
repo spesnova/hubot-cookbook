@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+node.override["hubot"]["adapter"] = "hipchat"
+
 #
 # hubot config
 #
@@ -26,6 +28,7 @@ p Chef::Config[:encrypted_data_bag_secret]
 p hubot_config
 
 node.override["hubot"]["config"].merge!({
+  "HUBOT_AUTH_ADMIN"       => hubot_config["hubot_auth_admin"],
   "HUBOT_HIPCHAT_TOKEN"    => hubot_config["hubot_hipchat_token"],
   "HUBOT_HIPCHAT_JID"      => hubot_config["hubot_hipchat_jid"],
   "HUBOT_HIPCHAT_PASSWORD" => hubot_config["hubot_hipchat_password"],

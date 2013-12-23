@@ -4,21 +4,20 @@ Using cookbook library/application pattern.
 
 Todo:
 
-* Remove "hubot" from dependency in kandan-hubot package.json
-* Determine how do manage hubot script
-* Support other platform
-* logrotate?
+* logrotate
 
 # Requirements
-Chef version 11
+## Chef
+
+* 11
 
 ## Platform
 
-* CentOS
+* Ubuntu
 
 Tested on:
 
-* CentOS 6.4
+* ubuntu-12.04
 
 ## Cookbook
 
@@ -43,8 +42,8 @@ Include the recipe on your node or role that fits how you wish to install Kandan
 ## spesnova-hubot::default
 This recipe deploy a hubot instance.
 
-## spesnova-hubot::_kandan_adapter
-\[WIP\] Configure for kandan adapter.
+## spesnova-hubot::hipchat_adapter
+Configure for hipchat adapter.
 
 # Author
 
