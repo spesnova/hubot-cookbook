@@ -8,3 +8,4 @@ version          '0.1.0'
 
 depends "nodejs", ">= 1.3.0"
 depends "hubot"
+depends "build-essential"

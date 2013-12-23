@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+include_recipe "build-essential"
+
 %{ libexpat1 libexpat1-dev libicu-dev }.each do |p|
   package p
 end

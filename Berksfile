@@ -7,3 +7,5 @@ cookbook "nodejs",
 
 cookbook "hubot",
   :git => "https://github.com/schisamo-cookbooks/hubot.git"
+
+cookbook "build-essential"
