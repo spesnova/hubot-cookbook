@@ -39,10 +39,10 @@ Include the recipe on your node or role that fits how you wish to install Kandan
 * `node["hubot"]["config"]` - The config about the hubot. Hash
 
 # Recipes
-## spesnova-hubot::default
+## my-hubot::default
 This recipe deploy a hubot instance.
 
-## spesnova-hubot::hipchat_adapter
+## my-hubot::hipchat_adapter
 Configure for hipchat adapter.
 
 # Author

@@ -1,4 +1,4 @@
-name             'spesnova-hubot'
+name             'my-hubot'
 maintainer       'Seigo Uchida'
 maintainer_email 'spesnova@gmail.com'
 license          'Apache 2.0'

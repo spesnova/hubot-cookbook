@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: spesnova-hubot
+# Cookbook Name:: my-hubot
 # Recipe:: default
 #
 # Copyright (C) 2013 Seigo Uchida

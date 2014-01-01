@@ -1,6 +1,6 @@
 #
 # Author:: Seigo Uchida (<spesnova@gmail.com>)
-# Cookbook Name:: spesnova-hubot
+# Cookbook Name:: my-hubot
 # Attributes:: default
 #
 # Copyright (C) 2013 Seigo Uchida (<spesnova@gmail.com>)
