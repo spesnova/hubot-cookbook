@@ -73,25 +73,25 @@ end
 #
 # TODO(spesnova): deploy my hubot
 #
-#git node["hubot"]["deploy_path"] do
-#  repo node["hubot"]["repo"]
-#  user node["hubot"]["user"]
-#  group node["hubot"]["group"]
-#  revision "master"
-#  ssh_wrapper "/tmp/private_code/wrap-ssh4git.sh"
-#  action :checkout
-#  notifies :run, "execute[npm install]", :immediately
-#end
-#
-#execute "npm install" do
-#  cwd node["hubot"]["deploy_path"]
-#  user node["hubot"]["user"]
-#  group node["hubot"]["group"]
-#  environment(
-#    USER: node["hubot"]["user"],
-#    HOME: node["hubot"]["deploy_path"]
-#  )
-#  action :nothing
-#end
+git node["hubot"]["deploy_path"] do
+  repo node["hubot"]["repo"]
+  user node["hubot"]["user"]
+  group node["hubot"]["group"]
+  revision "master"
+  ssh_wrapper "/tmp/private_code/wrap-ssh4git.sh"
+  action :checkout
+  notifies :run, "execute[npm install]", :immediately
+end
+
+execute "npm install" do
+  cwd node["hubot"]["deploy_path"]
+  user node["hubot"]["user"]
+  group node["hubot"]["group"]
+  environment(
+    USER: node["hubot"]["user"],
+    HOME: node["hubot"]["deploy_path"]
+  )
+  action :nothing
+end
 
 # TODO(spesnova): add service resource for hubot
