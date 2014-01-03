@@ -1,10 +1,8 @@
 # Description
-This cookbook is designed to deploy the hubot instance.
-Using cookbook library/application pattern.
+This cookbook is designed to deploy the hubot instance with git.
+See below document for prepare your hubot repository.
 
-Todo:
-
-* runit
+[Getting Started With Hubot](https://github.com/github/hubot/blob/master/docs/README.md)
 
 # Requirements
 ## Chef
@@ -52,9 +50,6 @@ Configure for hipchat adapter.
 
 ```bash
 $ script/bootstrap
-```
-
-```bash
 $ kitchen test
 ```
 
