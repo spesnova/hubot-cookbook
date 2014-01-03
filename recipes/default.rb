@@ -66,13 +66,13 @@ end
 file "/tmp/private_code/.ssh/deploy.id_rsa.pub" do
   owner node["hubot"]["user"]
   mode "0600"
-  content Chef::DataBagItem.load("deploy_keys", "my-hubot")["public_key"]
+  content Chef::EncryptedDataBagItem.load("deploy_keys", "my-hubot")["public_key"]
 end
 
 file "/tmp/private_code/.ssh/deploy.id_rsa" do
   owner node["hubot"]["user"]
   mode "0600"
-  content Chef::DataBagItem.load("deploy_keys", "my-hubot")["private_key"]
+  content Chef::EncryptedDataBagItem.load("deploy_keys", "my-hubot")["private_key"]
 end
 
 #
