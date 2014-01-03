@@ -18,16 +18,10 @@
 # limitations under the License.
 #
 
-default["hubot"]["version"]         = "2.6.3"
-default["hubot"]["scripts_version"] = "2.5.4"
 # NOTE Use SSH clone URL for git ssh wrapper
 default["hubot"]["repo"]            = "git@github.com:spesnova/my-hubot.git"
 default["hubot"]["deploy_path"]     = "/opt/hubot"
 default["hubot"]["user"]            = "hubot"
 default["hubot"]["group"]           = "hubot"
 default["hubot"]["name"]            = "hubot"
-default["hubot"]["adapter"]         = nil
-default["hubot"]["dependencies"]    = {}
-default["hubot"]["config"]          = {}
-default["hubot"]["hubot_scripts"]   = %w{
-}
+default["hubot"]["adapter"]         = "hipchat"

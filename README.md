@@ -25,6 +25,7 @@ Tested on:
 * [build-essential](https://github.com/opscode-cookbooks/build-essential.git) (opscode)
 * [git](https://github.com/opscode-cookbooks/git.git) (opscode)
 * [nodejs](https://github.com/mdxp/nodejs-cookbook.git)
+* [runit](https://github.com/hw-cookbooks/runit.git)
 
 # Usage
 Include the recipe on your node or role that fits how you wish to install Kandan on your system per the recipes section above. Modify the attributes as required in your role to change how various configuration is applied per the attributes section above. In general, override attributes in the role should be used when changing attributes.
