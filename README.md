@@ -1,6 +1,5 @@
 # Description
-This cookbook is designed to deploy the hubot instance with git.
-See below document for prepare your hubot repository.
+This cookbook is designed to deploy the hubot instance with git. See below link for preparing your hubot repository.
 
 [Getting Started With Hubot](https://github.com/github/hubot/blob/master/docs/README.md)
 
