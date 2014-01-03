@@ -44,3 +44,7 @@ end
 describe file("/opt/hubot/external-scripts.json") do
   it { should be_file }
 end
+
+describe service("hubot") do
+  it { should be_running }
+end
