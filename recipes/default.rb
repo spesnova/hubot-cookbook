@@ -27,9 +27,16 @@ end
 include_recipe "git"
 include_recipe "runit"
 
+#
+# Install node.js
+#
 node.set["nodejs"]["install_method"] = "package"
-
 include_recipe "nodejs"
+
+#
+# Install redis
+#
+package "redis-server"
 
 #
 # Create hubot user and group

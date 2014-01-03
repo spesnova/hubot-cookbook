@@ -12,6 +12,13 @@ describe command("npm -v") do
 end
 
 #
+# spec for redis
+#
+describe package("redis-server") do
+  it { should be_installed }
+end
+
+#
 # spec for deployed hubot
 #
 describe user("hubot") do
