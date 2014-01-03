@@ -4,7 +4,7 @@ Using cookbook library/application pattern.
 
 Todo:
 
-* logrotate
+* runit
 
 # Requirements
 ## Chef
@@ -21,7 +21,10 @@ Tested on:
 
 ## Cookbook
 
-* [hubot](https://github.com/schisamo-cookbooks/hubot) (opscode)
+* [apt](https://github.com/opscode-cookbooks/apt.git) (opscode)
+* [build-essential](https://github.com/opscode-cookbooks/build-essential.git) (opscode)
+* [git](https://github.com/opscode-cookbooks/git.git) (opscode)
+* [nodejs](https://github.com/mdxp/nodejs-cookbook.git)
 
 # Usage
 Include the recipe on your node or role that fits how you wish to install Kandan on your system per the recipes section above. Modify the attributes as required in your role to change how various configuration is applied per the attributes section above. In general, override attributes in the role should be used when changing attributes.
@@ -29,8 +32,7 @@ Include the recipe on your node or role that fits how you wish to install Kandan
 # Attributes
 
 * `node["hubot"]["version"]` - The hubot version
-* `node["hubot"]["script_version"]` - The hubot script version
-* `node["hubot"]["install_dir"` - The path to deploy hubot.
+* `node["hubot"]["deploy_path"]` - The path to deploy hubot.
 * `node["hubot"]["user"]` - The user to install and run the hubot.
 * `node["hubot"]["group"]` - The group to install and run the hubot.
 * `node["hubot"]["name"]` - Alias name in chat for the hubot.
@@ -44,6 +46,16 @@ This recipe deploy a hubot instance.
 
 ## my-hubot::hipchat_adapter
 Configure for hipchat adapter.
+
+# Testing
+
+```bash
+$ script/bootstrap
+```
+
+```bash
+$ kitchen test
+```
 
 # Author
 

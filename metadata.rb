@@ -6,6 +6,7 @@ description      'Installs/Configures spesnova-hubot'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.1.1'
 
-depends "nodejs", ">= 1.3.0"
-depends "hubot"
+depends "apt"
 depends "build-essential"
+depends "git"
+depends "nodejs", ">= 1.3.0"

@@ -26,10 +26,14 @@ describe file("/opt/hubot") do
   it { should be_directory }
 end
 
+describe file("/opt/hubot/bin/hubot") do
+  it { should be_file }
+end
+
 describe file("/opt/hubot/package.json") do
   it { should be_file }
 end
 
-describe file("/opt/hubot/hubot-scripts.json") do
+describe file("/opt/hubot/external-scripts.json") do
   it { should be_file }
 end

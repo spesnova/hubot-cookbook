@@ -36,7 +36,6 @@ include_recipe "nodejs"
 #
 user node["hubot"]["user"] do
   comment "Hubot"
-  home node["hubot"]["deploy_path"]
 end
 
 group node["hubot"]["group"] do
@@ -64,6 +63,12 @@ cookbook_file "/tmp/private_code/wrap-ssh4git.sh" do
   mode "0700"
 end
 
+file "/tmp/private_code/.ssh/deploy.id_rsa.pub" do
+  owner node["hubot"]["user"]
+  mode "0600"
+  content data_bag_item("deploy_keys", "my-hubot")["public_key"]
+end
+
 file "/tmp/private_code/.ssh/deploy.id_rsa" do
   owner node["hubot"]["user"]
   mode "0600"
@@ -88,8 +93,8 @@ execute "npm install" do
   user node["hubot"]["user"]
   group node["hubot"]["group"]
   environment(
-    USER: node["hubot"]["user"],
-    HOME: node["hubot"]["deploy_path"]
+    "USER" => node["hubot"]["user"],
+    "HOME" => node["hubot"]["deploy_path"]
   )
   action :nothing
 end
