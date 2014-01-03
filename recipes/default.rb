@@ -32,7 +32,7 @@ node.set["nodejs"]["install_method"] = "package"
 include_recipe "nodejs"
 
 #
-# create hubot user and group
+# Create hubot user and group
 #
 user node["hubot"]["user"] do
   comment "Hubot"
@@ -50,7 +50,7 @@ directory node["hubot"]["deploy_path"] do
 end
 
 #
-# create ssh wrapper
+# Create ssh wrapper
 #
 directory "/tmp/private_code/.ssh" do
   owner node["hubot"]["user"]
@@ -66,17 +66,17 @@ end
 file "/tmp/private_code/.ssh/deploy.id_rsa.pub" do
   owner node["hubot"]["user"]
   mode "0600"
-  content data_bag_item("deploy_keys", "my-hubot")["public_key"]
+  content Chef::DataBagItem.load("deploy_keys", "my-hubot")["public_key"]
 end
 
 file "/tmp/private_code/.ssh/deploy.id_rsa" do
   owner node["hubot"]["user"]
   mode "0600"
-  content data_bag_item("deploy_keys", "my-hubot")["private_key"]
+  content Chef::DataBagItem.load("deploy_keys", "my-hubot")["private_key"]
 end
 
 #
-# TODO(spesnova): deploy my hubot
+# Deploy my hubot
 #
 git node["hubot"]["deploy_path"] do
   repo node["hubot"]["repo"]

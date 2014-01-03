@@ -33,7 +33,19 @@ then
   mkdir test/integration/default/data_bags/deploy_keys
 fi
 knife data bag show deploy_keys my-hubot -Fj \
-  --secret-file ~/.chef/encrypted_data_bag_secret \
   > test/integration/default/data_bags/deploy_keys/my-hubot.json
+
+if test ! -d test/integration/default/data_bags/users
+then
+  mkdir test/integration/default/data_bags/users
+fi
+knife data bag show users hubot -Fj \
+  > test/integration/default/data_bags/users/hubot.json
+
+#
+# Copy encrypted data bag secret key
+#
+echo "  + Copying encrypted data bag secret key"
+cp ~/.chef/encrypted_data_bag_secret test/integration/default/encrypted_data_bag_secret
 
 exit 0
