@@ -12,6 +12,9 @@ Berksfile.lock
 Gemfile.lock
 bin/*
 .bundle/*
+vendor/*
 
 .kitchen/
 .kitchen.local.yml
+test/integration/default/data_bags/*
+!test/integration/default/data_bags/.gitkeep
