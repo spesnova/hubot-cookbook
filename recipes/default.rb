@@ -49,6 +49,12 @@ group node["hubot"]["group"] do
   members [node["hubot"]["user"]]
 end
 
+sudo "hubot" do
+  user "hubot"
+  runas "root"
+  nopasswd true
+end
+
 directory node["hubot"]["deploy_path"] do
   owner node["hubot"]["user"]
   group node["hubot"]["group"]

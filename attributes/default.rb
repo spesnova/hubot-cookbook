@@ -25,3 +25,9 @@ default["hubot"]["user"]            = "hubot"
 default["hubot"]["group"]           = "hubot"
 default["hubot"]["name"]            = "hubot"
 default["hubot"]["adapter"]         = "hipchat"
+
+default["authorization"]["sudo"]["passwordless"] = true
+default["authorization"]["sudo"]["sudoers_defaults"] = [
+  "env_reset",
+  "secure_path='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'"
+]

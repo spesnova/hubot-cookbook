@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 #
 # spec for nodejs
@@ -19,7 +19,7 @@ describe package("redis-server") do
 end
 
 #
-# spec for deployed hubot
+# spec for hubot user
 #
 describe user("hubot") do
   it { should exist }
@@ -29,6 +29,15 @@ describe group("hubot") do
   it { should exist }
 end
 
+describe file("/etc/sudoers.d/hubot") do
+  it { should be_owned_by "root" }
+  it { should be_mode 440 }
+  it { should contain "hubot  ALL=(root) NOPASSWD:ALL" }
+end
+
+#
+# spec for deployed hubot
+#
 describe file("/opt/hubot") do
   it { should be_directory }
 end
