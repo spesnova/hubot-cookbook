@@ -91,7 +91,7 @@ git node["hubot"]["deploy_path"] do
   group node["hubot"]["group"]
   revision "master"
   ssh_wrapper "/tmp/private_code/wrap-ssh4git.sh"
-  action :checkout
+  action :sync
   notifies :run, "execute[npm install]", :immediately
 end
 
