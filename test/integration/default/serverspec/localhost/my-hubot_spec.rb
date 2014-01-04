@@ -29,6 +29,10 @@ describe group("hubot") do
   it { should exist }
 end
 
+describe file("/home/hubot") do
+  it { should be_directory }
+end
+
 describe file("/etc/sudoers.d/hubot") do
   it { should be_owned_by "root" }
   it { should be_mode 440 }

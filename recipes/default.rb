@@ -43,6 +43,8 @@ package "redis-server"
 #
 user node["hubot"]["user"] do
   comment "Hubot"
+  home "/home/hubot"
+  supports :manage_home => true
 end
 
 group node["hubot"]["group"] do
