@@ -3,7 +3,7 @@ This cookbook is designed to deploy the hubot instance with git. See below link 
 
 [Getting Started With Hubot](https://github.com/github/hubot/blob/master/docs/README.md)
 
-# Requirements
+# REQUIREMENTS
 ## Chef
 
 * 11
@@ -24,10 +24,10 @@ Tested on:
 * [nodejs](https://github.com/mdxp/nodejs-cookbook.git)
 * [runit](https://github.com/hw-cookbooks/runit.git)
 
-# Usage
+# uSAGE
 Include the recipe on your node or role that fits how you wish to install Kandan on your system per the recipes section above. Modify the attributes as required in your role to change how various configuration is applied per the attributes section above. In general, override attributes in the role should be used when changing attributes.
 
-# Attributes
+# ATTRIBUTES
 
 * `node["hubot"]["version"]` - The hubot version
 * `node["hubot"]["deploy_path"]` - The path to deploy hubot.
@@ -38,25 +38,25 @@ Include the recipe on your node or role that fits how you wish to install Kandan
 * `node["hubot"]["dependencies"]` - The dependency npm packages. Hash
 * `node["hubot"]["config"]` - The config about the hubot. Hash
 
-# Recipes
+# RECIPES
 ## my-hubot::default
 This recipe deploy a hubot instance.
 
 ## my-hubot::hipchat_adapter
 Configure for hipchat adapter.
 
-# Testing
+# TESTING
 
 ```bash
 $ script/bootstrap
 $ kitchen test
 ```
 
-# Author
+# AUTHOR
 
 Author:: Seigo Uchida (<spesnova@gmail.com>)
 
-Copyright:: 2013 Seigo Uchida (<spesnova@gmail.com>)
+Copyright:: 2013-2014 Seigo Uchida (<spesnova@gmail.com>)
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
