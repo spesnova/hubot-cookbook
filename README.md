@@ -41,7 +41,7 @@ Include the recipe on your node or role that fits how you wish to install and de
 * `node["hubot"]["config"]` - The config about the hubot. Hash
 
 ## RECIPES
-### my-hubot::default
+### default
 
 * Install dependent component (like git, node.js etc)
 * Install Hubot Library
