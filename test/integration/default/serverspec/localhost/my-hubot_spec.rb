@@ -1,7 +1,7 @@
 require "spec_helper"
 
 #
-# spec for nodejs
+# Node.js is installed?
 #
 describe command("node -v") do
   it { should return_exit_status 0 }
@@ -12,14 +12,14 @@ describe command("npm -v") do
 end
 
 #
-# spec for redis
+# Redis is installed?
 #
 describe package("redis-server") do
   it { should be_installed }
 end
 
 #
-# spec for hubot user
+# Hubot Unix User exist?
 #
 describe user("hubot") do
   it { should exist }
@@ -40,7 +40,7 @@ describe file("/etc/sudoers.d/hubot") do
 end
 
 #
-# spec for deployed hubot
+# Hubot is deployed and running?
 #
 describe file("/opt/hubot") do
   it { should be_directory }
