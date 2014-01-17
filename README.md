@@ -1,5 +1,7 @@
 ## DESCRIPTION
-This cookbook is designed to deploy the hubot instance with git. ## REQUIREMENTS
+This cookbook is designed to deploy the hubot instance with git. 
+
+## REQUIREMENTS
 
 ### Chef
 
@@ -60,6 +62,7 @@ $ kitchen test
 * Using data bag to manage hubot config to options.
  * Support config by node attributes.
 * Using ssh wrapper in git resource to options.
+* CI with wercker or travis.
 
 ## AUTHOR
 
