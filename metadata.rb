@@ -11,3 +11,5 @@ depends "build-essential"
 depends "git"
 depends "nodejs", ">= 1.3.0"
 depends "sudo", ">= 1.7.2"
+
+supports "ubuntu"
