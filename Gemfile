@@ -1,5 +1,12 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'berkshelf'
-gem 'test-kitchen', :group => :integration
-gem 'kitchen-vagrant', :group => :integration
+gem "berkshelf"
+gem "foodcritic"
+gem "rubocop"
+
+group :integration do
+  gem "test-kitchen"
+  gem "kitchen-vagrant"
+  gem "busser"
+  gem "serverspec"
+end
