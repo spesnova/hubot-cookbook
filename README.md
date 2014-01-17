@@ -1,14 +1,11 @@
-# Description
-This cookbook is designed to deploy the hubot instance with git. See below link for preparing your hubot repository.
+## DESCRIPTION
+This cookbook is designed to deploy the hubot instance with git. ## REQUIREMENTS
 
-[Getting Started With Hubot](https://github.com/github/hubot/blob/master/docs/README.md)
-
-# REQUIREMENTS
-## Chef
+### Chef
 
 * 11
 
-## Platform
+### Platform
 
 * Ubuntu
 
@@ -16,7 +13,7 @@ Tested on:
 
 * ubuntu-12.04
 
-## Cookbook
+### Cookbook
 
 * [apt](https://github.com/opscode-cookbooks/apt.git) (opscode)
 * [build-essential](https://github.com/opscode-cookbooks/build-essential.git) (opscode)
@@ -24,10 +21,15 @@ Tested on:
 * [nodejs](https://github.com/mdxp/nodejs-cookbook.git)
 * [runit](https://github.com/hw-cookbooks/runit.git)
 
-# uSAGE
-Include the recipe on your node or role that fits how you wish to install Kandan on your system per the recipes section above. Modify the attributes as required in your role to change how various configuration is applied per the attributes section above. In general, override attributes in the role should be used when changing attributes.
+### Hubot Repository
+See below link for preparing your hubot repository.
 
-# ATTRIBUTES
+[Getting Started With Hubot](https://github.com/github/hubot/blob/master/docs/README.md)
+
+## USAGE
+Include the recipe on your node or role that fits how you wish to install and deploy Hubot on your system per the recipes section above. Modify the attributes as required in your role to change how various configuration is applied per the attributes section above. In general, override attributes in the role should be used when changing attributes.
+
+## ATTRIBUTES
 
 * `node["hubot"]["version"]` - The hubot version
 * `node["hubot"]["deploy_path"]` - The path to deploy hubot.
@@ -38,21 +40,21 @@ Include the recipe on your node or role that fits how you wish to install Kandan
 * `node["hubot"]["dependencies"]` - The dependency npm packages. Hash
 * `node["hubot"]["config"]` - The config about the hubot. Hash
 
-# RECIPES
-## my-hubot::default
-This recipe deploy a hubot instance.
+## RECIPES
+### my-hubot::default
 
-## my-hubot::hipchat_adapter
-Configure for hipchat adapter.
+* Install dependent component (like git, node.js etc)
+* Install Hubot Library
+* Deploy Hubot with Git
 
-# TESTING
+## TESTING
 
 ```bash
 $ script/bootstrap
 $ kitchen test
 ```
 
-# AUTHOR
+## AUTHOR
 
 Author:: Seigo Uchida (<spesnova@gmail.com>)
 
