@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: my-hubot
+# Cookbook Name:: hubot
 # Recipe:: default
 #
 # Copyright (C) 2013-2014 Seigo Uchida
@@ -78,16 +78,21 @@ cookbook_file "/tmp/private_code/wrap-ssh4git.sh" do
   mode "0700"
 end
 
+deploy_key = Chef::EncryptedDataBagItem.load(
+  node["hubot"]["deploy_key"]["data_bag"],
+  node["hubot"]["deploy_key"]["data_bag_item"]
+)
+
 file "/tmp/private_code/.ssh/deploy.id_rsa.pub" do
   owner node["hubot"]["user"]
   mode "0600"
-  content Chef::EncryptedDataBagItem.load("deploy_keys", "my-hubot")["public_key"]
+  content deploy_key["public_key"]
 end
 
 file "/tmp/private_code/.ssh/deploy.id_rsa" do
   owner node["hubot"]["user"]
   mode "0600"
-  content Chef::EncryptedDataBagItem.load("deploy_keys", "my-hubot")["private_key"]
+  content deploy_key["private_key"]
 end
 
 #
@@ -118,7 +123,12 @@ end
 #
 # Start hubot instance
 #
+config = Chef::EncryptedDataBagItem.load(
+  node["hubot"]["config"]["data_bag"],
+  node["hubot"]["config"]["data_bag_item"]
+)
+
 runit_service "hubot" do
   options node["hubot"].to_hash
-  env Chef::EncryptedDataBagItem.load("users", "hubot")["hubot_config"]
+  env config[node["hubot"]["config"]["data_bag_item_key"]]
 end
