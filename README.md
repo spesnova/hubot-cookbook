@@ -84,7 +84,6 @@ $ kitchen test
 
 ## ROADMAP
 
-* Include encrypted data bag in cookbook for test.
 * Using data bag to manage hubot config to options.
  * Support config by node attributes.
 * Using ssh wrapper in git resource to options.
