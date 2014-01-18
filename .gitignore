@@ -16,5 +16,6 @@ vendor/*
 
 .kitchen/
 .kitchen.local.yml
+.kitchen.yml
 encrypted_data_bag_secret
 !test/integration/default/data_bags/.gitkeep
