@@ -7,45 +7,63 @@
 set -e
 
 #
+# Welcome to hubot-cookbook
+#
+echo ""
+echo "  hubot-cookbook"
+echo ""
+
+#
 # Check for Bundler
 #
-if test ! $(which bundle)
+if test $(which bundle)
 then
+  echo "  + Bundler found."
+else
   echo "  x You need to install Bundler:"
   echo "    gem install bundler"
   exit
-else
-  echo "  + Bundler found."
 fi
 
 #
 # Install gems
 #
 echo "  + Bootstrapping your Rubies."
-bundle install --binstubs --local --path vendor/gems --quiet
+bundle install --quiet
 
 #
-# Generate data bag items
+# Setup kitchen.yml
 #
-echo "  + Generating data bag items for test-kitchen."
-if test ! -d test/integration/default/data_bags/deploy_keys
+if test -f .kitchen.yml
 then
-  mkdir test/integration/default/data_bags/deploy_keys
-fi
-knife data bag show deploy_keys my-hubot -Fj \
-  > test/integration/default/data_bags/deploy_keys/my-hubot.json
+  echo "  + .kitchen.yml found."
+else
+  echo "  - You need .kitchen.yml for testing."
+  echo "  + Setuping kitchen.yml"
+  cp .kitchen.yml.sample .kitchen.yml
 
-if test ! -d test/integration/default/data_bags/users
-then
-  mkdir test/integration/default/data_bags/users
+  printf "  ? data bags directory path: "
+  read -e data_bags_path
+  data_bags_path=`echo $data_bags_path | sed -e 's/\//\\\\\//g'`
+  gsed -i "s/DATA_BAGS_PATH/$data_bags_path/g" .kitchen.yml
+
+  printf "  ? encrypted_data_bag_secret file path: "
+  read -e encrypted_data_bag_secret_path
+  encrypted_data_bag_secret_path=`echo $encrypted_data_bag_secret_path | sed -e 's/\//\\\\\//g'`
+  gsed -i "s/ENCRYPTED_DATA_BAG_SECRET_KEY_PATH/$encrypted_data_bag_secret_path/g" .kitchen.yml
+
+  printf "  ? hubot git repository (use ssh clone url): "
+  read -e hubot_repo
+  hubot_repo=`echo $hubot_repo | sed -e 's/\//\\\\\//g'`
+  gsed -i "s/HUBOT_REPO/$hubot_repo/g" .kitchen.yml
+
+  echo "  + Created .kitchen.yml."
 fi
-knife data bag show users hubot -Fj \
-  > test/integration/default/data_bags/users/hubot.json
 
 #
-# Copy encrypted data bag secret key
+# Startup Instructions
 #
-echo "  + Copying encrypted data bag secret key"
-cp ~/.chef/encrypted_data_bag_secret test/integration/default/encrypted_data_bag_secret
+echo ""
+echo "  Good work. We're ready."
 
 exit 0
