@@ -1,8 +1,9 @@
 ## DESCRIPTION
 This cookbook is designed to deploy the hubot instance with git. 
 
-## REQUIREMENTS
+Inspired by [schisamo-cookbooks/hubot](https://github.com/schisamo-cookbooks/hubot).
 
+## REQUIREMENTS
 ### Chef
 
 * 11
@@ -38,9 +39,34 @@ Include the recipe on your node or role that fits how you wish to install and de
 * `node["hubot"]["user"]` - The user to install and run the hubot.
 * `node["hubot"]["group"]` - The group to install and run the hubot.
 * `node["hubot"]["name"]` - Alias name in chat for the hubot.
-* `node["hubot"]["adapter"]` - The hubot adapter you use.
-* `node["hubot"]["dependencies"]` - The dependency npm packages. Hash
-* `node["hubot"]["config"]` - The config about the hubot. Hash
+* `node["hubot"]["adapter"]` - The hubot adapter.
+
+### Deploy Key
+
+* `node["hubot"]["config"]["deploy_key"]["data_bag"]` - The data bag name managing your deploy keys. String
+ * example: `deploy_keys`
+* `node["hubot"]["config"]["deploy_key"]["data_bag_item"]` - The data bag item name managing your deploy key. String
+ * I recommend naming it after your hubot repository.
+ * example: `my-hubot`
+
+See example data bag in this cookbook.
+
+* `test/integration/default/data_bags/deploy_key/my-hubot.json`
+* `test/integration/default/data_bags/deploy_key/encrypted_my-hubot.json`
+
+### Hubot Config
+
+* `["hubot"]["config"]["data_bag"]` - The data bag name. String
+ * example: `users`
+* `["hubot"]["config"]["data_bag_item"]` - The data bag item name. String
+ * example: `hubot`
+* `["hubot"]["config"]["data_bag_item_key"]` - The key managing hubot config. Hash
+ * example: `hubot_config`
+
+See example data bag in this cookbook.
+
+* `test/integration/default/data_bags/users/hubot.json`
+* `test/integration/default/data_bags/users/encrypted_hubot.json`
 
 ## RECIPES
 ### default
@@ -58,7 +84,6 @@ $ kitchen test
 
 ## ROADMAP
 
-* Include encrypted data bag in cookbook for test.
 * Using data bag to manage hubot config to options.
  * Support config by node attributes.
 * Using ssh wrapper in git resource to options.
