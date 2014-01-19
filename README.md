@@ -34,7 +34,7 @@ Include the recipe on your node or role that fits how you wish to install and de
 
 ## ATTRIBUTES
 
-* `node["hubot"]["version"]` - The hubot version
+* `node["hubot"]["repo"]` - Hubot repository url.
 * `node["hubot"]["deploy_path"]` - The path to deploy hubot.
 * `node["hubot"]["user"]` - The user to install and run the hubot.
 * `node["hubot"]["group"]` - The group to install and run the hubot.
